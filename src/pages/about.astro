@@ -1,0 +1,66 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navigation from "../components/Navigation.astro";
+import Card from "../components/Card.astro";
+import "../styles/global.css";
+---
+
+<Layout title="About">
+    <main>
+        <div class="main-content">
+            <h1 class="text-gradient">About Us</h1>
+            <p>
+                Astro is a new kind of static site builder that delivers lightning-fast performance with a modern developer experience. We believe that the future of the web is static, and we're excited to help you build the next generation of websites and apps.
+            </p>
+            <p>
+                Astro is built by a small team of passionate developers who are dedicated to making the web faster and more enjoyable for everyone. We're always looking for new contributors to help us build the best tools for the web, so if you're interested in getting involved, please don't hesitate to reach out.
+            </p>
+            <p>
+                If you have any questions or feedback about Astro, please don't hesitate to <a href="https://astro.build/chat/">reach out</a> to us. We're always happy to help and we'd love to hear from you.
+            </p>
+        </div>
+        <ul role="list" class="link-card-grid">
+			<Card
+				href=""
+				title="Web Design"
+				body="Check out our web design resources and tutorials."
+			/>
+			<Card
+				href=""
+				title="Web Development"
+				body="We can build anything you can imagine."
+			/>
+			<Card
+				href=""
+				title="SEO"
+				body="Learn how to optimize your website for search engines."
+			/>
+			<Card
+				href=""
+				title="Support"
+				body="Get help from our friendly support team on your React or Wordpress Project."
+			/>
+		</ul>
+    </main>
+</Layout>
+
+<style lang="scss" is:global>
+    main {
+        color: white;
+        padding: 50px;
+
+        .main-content {
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .link-card-grid {
+            display: grid;
+            grid-template-columns: 2fr 2fr;
+            grid-template-rows: 2fr 2fr;
+            gap: 2rem;
+            padding: 0;
+        }
+    }
+</style>

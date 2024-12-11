@@ -2,8 +2,10 @@
 interface Props {
 	title: string;
 }
-
 const { title } = Astro.props;
+
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
 ---
 
 <!doctype html>
@@ -17,10 +19,12 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
+		<Navigation />
 		<slot />
+		<Footer />
 	</body>
 </html>
-<style is:global>
+<style lang="scss" is:global>
 	:root {
 		--accent: 136, 58, 234;
 		--accent-light: 224, 204, 250;
