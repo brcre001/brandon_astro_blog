@@ -7,72 +7,176 @@ import "../styles/global.css";
 
 <Layout title="About | Brandon's Dev Blog">
     <main>
-        <div class="main-content">
-            <h1 class="text-gradient">About Us</h1>
-            <p>
-                Astro is a new kind of static site builder that delivers lightning-fast performance with a modern developer experience. We believe that the future of the web is static, and we're excited to help you build the next generation of websites and apps.
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1 class="text-gradient">Crafting Digital Experiences</h1>
+            <p class="hero-text">
+                We transform ideas into exceptional digital solutions, creating websites 
+                and applications that make a lasting impact.
             </p>
-            <p>
-                Astro is built by a small team of passionate developers who are dedicated to making the web faster and more enjoyable for everyone. We're always looking for new contributors to help us build the best tools for the web, so if you're interested in getting involved, please don't hesitate to reach out.
-            </p>
-            <p>
-                If you have any questions or feedback about Astro, please don't hesitate to <a href="https://astro.build/chat/">reach out</a> to us. We're always happy to help and we'd love to hear from you.
-            </p>
-        </div>
-        <ul role="list" class="link-card-grid">
-			<Card
-				href=""
-				title="Web Design"
-				body="Check out our web design resources and tutorials."
-			/>
-			<Card
-				href=""
-				title="Web Development"
-				body="We can build anything you can imagine."
-			/>
-			<Card
-				href=""
-				title="SEO"
-				body="Learn how to optimize your website for search engines."
-			/>
-			<Card
-				href=""
-				title="Support"
-				body="Get help from our friendly support team on your React or Wordpress Project."
-			/>
-		</ul>
+        </section>
+
+        <!-- About Section -->
+        <section class="about-section">
+            <div class="content-wrapper">
+                <h2>Our Story</h2>
+                <p>
+                    With over a decade of experience in web development and design, 
+                    we've helped countless businesses establish their digital presence. 
+                    Our passion lies in creating seamless, user-friendly experiences 
+                    that drive results.
+                </p>
+                <p>
+                    We believe in staying ahead of the curve, continuously learning 
+                    and adapting to new technologies while maintaining our commitment 
+                    to quality and innovation.
+                </p>
+            </div>
+        </section>
+
+        <!-- Image & Text Section -->
+        <section class="feature-section">
+            <div class="image-container">
+                <img src="/images/workspace.jpg" alt="Modern workspace with computers" />
+            </div>
+            <div class="text-container">
+                <h2>How We Work</h2>
+                <p>
+                    Our approach combines technical expertise with creative problem-solving. 
+                    We focus on delivering solutions that are not just visually stunning 
+                    but also performant and scalable.
+                </p>
+                <ul class="feature-list">
+                    <li>✨ Modern Technology Stack</li>
+                    <li>🚀 Performance-First Approach</li>
+                    <li>💡 Innovative Solutions</li>
+                    <li>🤝 Collaborative Development</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services-section">
+            <h2>Our Services</h2>
+            <div class="link-card-grid">
+                <Card
+                    href="/services/web-design"
+                    title="Web Design"
+                    body="Creating beautiful, responsive websites that capture your brand's essence."
+                />
+                <Card
+                    href="/services/development"
+                    title="Web Development"
+                    body="Building robust applications with modern frameworks and technologies."
+                />
+                <Card
+                    href="/services/seo"
+                    title="SEO Optimization"
+                    body="Improving your digital presence and search engine rankings."
+                />
+                <Card
+                    href="/services/support"
+                    title="Technical Support"
+                    body="Providing ongoing maintenance and support for your digital solutions."
+                />
+            </div>
+        </section>
     </main>
 </Layout>
 
 <style lang="scss" is:global>
     main {
         margin: auto;
-		padding: 1rem;
-		width: 800px;
-		max-width: calc(100% - 2rem);
-		color: white;
-		font-size: 20px;
-		line-height: 1.6;
+        color: white;
+        font-size: 18px;
+        line-height: 1.6;
+        
+        section {
+            padding: 4rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+    }
 
-        .main-content {
+    .hero {
+        text-align: center;
+        padding: 8rem 1rem 6rem;
+        background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                    url('/images/hero-bg.jpg') center/cover;
+        
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-text {
+            font-size: 1.5rem;
             max-width: 800px;
-            margin: auto;
+            margin: 0 auto;
+        }
+    }
+
+    .about-section {
+        background: rgba(255,255,255,0.05);
+
+        .content-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
             text-align: center;
+        }
+    }
+
+    .feature-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr;
+        }
+
+        .image-container {
+            img {
+                width: 100%;
+                height: auto;
+                border-radius: 10px;
+            }
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 2rem;
+
+            li {
+                margin: 1rem 0;
+                font-size: 1.1rem;
+            }
+        }
+    }
+
+    .services-section {
+        background: rgba(255,255,255,0.05);
+        text-align: center;
+
+        h2 {
+            margin-bottom: 3rem;
         }
 
         .link-card-grid {
             display: grid;
-            grid-template-columns: 2fr 2fr;
-            grid-template-rows: 2fr 2fr;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
             padding: 0;
+            max-width: 1200px;
+            margin: 0 auto;
         }
     }
-    h1 {
-		font-size: 4rem;
-		font-weight: 700;
-		line-height: 1;
-		text-align: center;
-		margin-bottom: 1em;
-	}
+
+    h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+        color: var(--accent-gradient);
+    }
 </style>

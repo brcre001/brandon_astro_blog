@@ -30,10 +30,13 @@ import Footer from '../components/Footer.astro';
 	</head>
 	<body>
 		<Navigation />
-		<slot />
+		<div class="content-wrapper">
+			<slot />
+		</div>
 		<Footer />
 	</body>
 </html>
+
 <style lang="scss" is:global>
 	:root {
 		--accent: 136, 58, 234;
@@ -46,10 +49,28 @@ import Footer from '../components/Footer.astro';
 			white 60%
 		);
 	}
+	
 	html {
 		font-family: system-ui, sans-serif;
 		background: #13151a;
+		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
 	}
+	
+	body {
+		margin: 0 !important;
+		padding: 0 !important;
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+	}
+	
+	.content-wrapper {
+		flex: 1;
+		padding-top: 60px; /* Same as navbar height */
+	}
+	
 	code {
 		font-family:
 			Menlo,
