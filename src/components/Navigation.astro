@@ -1,212 +1,180 @@
 ---
-const currentPath = Astro.url.pathname;
+import Container from './Container.astro';
+
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.slice(1); // remove the first "/"
 ---
 
-<nav>
-    <div class="nav-content">
-        <div class="logo">
-            <a href="/" class="text-gradient">Brandon's Blog</a>
-        </div>
-        
-        <button class="mobile-menu-button" aria-label="Toggle menu">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </button>
+<header>
+    <nav>
+        <Container class="nav-container">
+            <a href="/" class="logo">
+                <span class="text-gradient">Brandon's Blog</span>
+            </a>
 
-        <div class="nav-links">
-            <a href="/" class={currentPath === "/" ? "active" : ""}>
-                Home
-            </a>
-            <a href="/about" class={currentPath === "/about" ? "active" : ""}>
-                About
-            </a>
-            <a href="/blog" class={currentPath === "/blog" ? "active" : ""}>
-                Blog
-            </a>
-            <a href="/contact" class={currentPath === "/contact" ? "active" : ""}>
-                Contact
-            </a>
-        </div>
-    </div>
-</nav>
+            <div class="nav-links">
+                <a href="/" class={currentPath === "" ? "active" : ""}>
+                    Home
+                </a>
+                <a href="/blog" class={currentPath.startsWith("blog") ? "active" : ""}>
+                    Blog
+                </a>
+                <a href="/about" class={currentPath === "about" ? "active" : ""}>
+                    About
+                </a>
+                <a href="/contact" class={currentPath === "contact" ? "active" : ""}>
+                    Contact
+                </a>
+            </div>
+
+            <button id="mobile-menu" aria-label="Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+        </Container>
+    </nav>
+</header>
 
 <script>
-    const mobileMenuButton = document.querySelector('.mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
     const navLinks = document.querySelector('.nav-links');
-    const body = document.querySelector('body');
 
-    mobileMenuButton?.addEventListener('click', () => {
-        mobileMenuButton.classList.toggle('open');
+    mobileMenu?.addEventListener('click', () => {
         navLinks?.classList.toggle('show');
-        body?.classList.toggle('menu-open');
     });
 </script>
 
 <style lang="scss">
-    nav {
-        position: fixed;
+    header {
+        position: sticky;
         top: 0;
-        left: 0;
-        right: 0;
+        z-index: 100;
         background: rgba(0, 0, 0, 0.95);
         backdrop-filter: blur(10px);
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        z-index: 1000;
-        width: 100%;
-
-        &::after {
-            content: '';
-            position: absolute;
-            bottom: -1px;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(
-                90deg,
-                transparent,
-                rgba(255, 255, 255, 0.2),
-                transparent
-            );
-        }
     }
 
-    .nav-content {
-        max-width: 1200px;
-        margin: 0 auto;
-        height: 60px;
+    nav {
+        padding: 1rem 0;
+    }
+
+    .nav-container {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 0 2rem;
     }
 
     .logo {
-        a {
-            font-size: 1.5rem;
-            font-weight: bold;
-            text-decoration: none;
+        text-decoration: none;
+        font-size: 1.5rem;
+        font-weight: bold;
+
+        .text-gradient {
+            background-image: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             background-size: 400%;
             background-position: 0%;
-        }
-    }
-
-    .mobile-menu-button {
-        display: none;
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 0.5rem;
-        z-index: 1001;
-
-        @media (max-width: 768px) {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-
-        .bar {
-            display: block;
-            width: 25px;
-            height: 2px;
-            background-color: rgba(255, 255, 255, 0.8);
-            transition: all 0.3s ease;
-        }
-
-        &.open {
-            .bar:nth-child(1) {
-                transform: translateY(8px) rotate(45deg);
-            }
-            .bar:nth-child(2) {
-                opacity: 0;
-            }
-            .bar:nth-child(3) {
-                transform: translateY(-8px) rotate(-45deg);
-            }
         }
     }
 
     .nav-links {
         display: flex;
         gap: 2rem;
+        align-items: center;
 
         a {
             color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            padding: 0.5rem 1rem;
+            font-weight: 500;
+            padding: 0.5rem;
+            transition: color 0.2s ease;
             position: relative;
 
             &::after {
                 content: '';
                 position: absolute;
+                bottom: 0;
                 left: 0;
-                bottom: -2px;
-                width: 0;
+                width: 100%;
                 height: 2px;
                 background: rgb(var(--accent));
-                transition: width 0.3s ease;
+                transform: scaleX(0);
+                transform-origin: right;
+                transition: transform 0.3s ease;
             }
 
             &:hover {
                 color: white;
-                
+
                 &::after {
-                    width: 100%;
+                    transform: scaleX(1);
+                    transform-origin: left;
                 }
             }
 
             &.active {
                 color: white;
-                
+
                 &::after {
-                    width: 100%;
+                    transform: scaleX(1);
                 }
             }
         }
+    }
 
-        @media (max-width: 768px) {
-            position: fixed;
-            top: 0;
+    #mobile-menu {
+        display: none;
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+        padding: 0.5rem;
+        margin: -0.5rem;
+
+        &:hover {
+            color: rgb(var(--accent));
+        }
+    }
+
+    @media (max-width: 768px) {
+        #mobile-menu {
+            display: block;
+        }
+
+        .nav-links {
+            display: none;
+            position: absolute;
+            top: 100%;
             left: 0;
-            width: 100%;
-            height: 100vh;
+            right: 0;
             background: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(10px);
+            padding: 1rem;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 2rem;
-            transform: translateX(-100%);
-            transition: transform 0.3s ease;
-            
+            gap: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
             &.show {
-                transform: translateX(0);
+                display: flex;
             }
 
             a {
-                font-size: 1.5rem;
-                padding: 1rem 2rem;
                 width: 100%;
                 text-align: center;
+                padding: 0.75rem;
 
                 &::after {
-                    bottom: 0;
+                    display: none;
+                }
+
+                &:hover, &.active {
+                    background: rgba(255, 255, 255, 0.1);
+                    border-radius: 0.25rem;
                 }
             }
         }
-    }
-
-    :global(body.menu-open) {
-        overflow: hidden;
-    }
-
-    .text-gradient {
-        background-image: var(--accent-gradient);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-size: 400%;
-        background-position: 0%;
     }
 </style>

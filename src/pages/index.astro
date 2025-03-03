@@ -1,198 +1,104 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
-import "../styles/global.css";
+import Container from '../components/Container.astro';
+import BlogCard from '../components/BlogCard.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog'))
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+	.slice(0, 3);
+
+const title = "Brandon's Web Development Blog";
+const description = "Explore web development tutorials, programming insights, and modern technology solutions.";
 ---
 
-<Layout title="Brandon's Dev Blog">
+<Layout title={title} description={description}>
 	<main>
-		<section class="hero">
-			<div class="hero-content">
-				<h1>Welcome to My <span class="text-gradient">Dev Journey</span></h1>
-				<p class="subtitle">Exploring Web Development, Modern Technologies, and Best Practices</p>
+		<Container>
+			<section class="hero">
+				<h1>Welcome to <span class="text-gradient">Brandon's Blog</span></h1>
+				<p>
+					Exploring the world of web development, one line of code at a time.
+					Here you'll find tutorials, insights, and best practices for modern web development.
+				</p>
 				<div class="cta-buttons">
-					<a href="/blog" class="cta-button primary">Read Blog</a>
-					<a href="/about" class="cta-button secondary">About Me</a>
+					<a href="/blog" class="button primary">Read Blog</a>
+					<a href="/about" class="button">About Me</a>
 				</div>
-			</div>
-			<div class="hero-background">
-				<div class="gradient-overlay"></div>
-			</div>
-		</section>
+			</section>
 
-		<section class="featured-posts">
-			<h2>Latest Articles</h2>
-			<div class="card-grid">
-				<Card
-					href="/blog/web-development"
-					title="Modern Web Development"
-					body="Exploring the latest trends and technologies in web development."
-				/>
-				<Card
-					href="/blog/javascript"
-					title="JavaScript Tips"
-					body="Advanced JavaScript concepts and best practices for better code."
-				/>
-				<Card
-					href="/blog/react"
-					title="React Patterns"
-					body="Common patterns and solutions for React applications."
-				/>
-			</div>
-		</section>
+			<section class="featured-posts">
+				<h2>Latest Posts</h2>
+				<div class="blog-grid">
+					{posts.map(post => (
+						<BlogCard
+							title={post.data.title}
+							description={post.data.description}
+							pubDate={post.data.pubDate}
+							url={`/blog/${post.slug}`}
+							image={post.data.image}
+							tags={post.data.tags}
+						/>
+					))}
+				</div>
+				<div class="view-all">
+					<a href="/blog" class="button outline">View All Posts</a>
+				</div>
+			</section>
+
+			<section class="topics">
+				<h2>Topics I Write About</h2>
+				<div class="topics-grid">
+					<a href="/blog/tag/javascript" class="topic-card">
+						<h3>JavaScript</h3>
+						<p>Modern JavaScript features, best practices, and tutorials.</p>
+					</a>
+					<a href="/blog/tag/react" class="topic-card">
+						<h3>React</h3>
+						<p>React development, hooks, patterns, and optimization techniques.</p>
+					</a>
+					<a href="/blog/tag/web-development" class="topic-card">
+						<h3>Web Development</h3>
+						<p>General web development topics, tools, and technologies.</p>
+					</a>
+					<a href="/blog/tag/astro" class="topic-card">
+						<h3>Astro</h3>
+						<p>Building fast websites with Astro and modern tools.</p>
+					</a>
+				</div>
+			</section>
+
+			<section class="newsletter">
+				<div class="newsletter-content">
+					<h2>Stay Updated</h2>
+					<p>Subscribe to my newsletter for the latest web development tips and tutorials.</p>
+					<form class="newsletter-form">
+						<input type="email" placeholder="Enter your email" required>
+						<button type="submit" class="button primary">Subscribe</button>
+					</form>
+				</div>
+			</section>
+		</Container>
 	</main>
 </Layout>
 
 <style lang="scss">
-	main {
-		width: 100%;
-	}
-
 	.hero {
-		position: relative;
-		min-height: 80vh;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		overflow: hidden;
-		padding: 2rem;
-		margin-top: -60px; // Compensate for navbar height
-
-		.hero-content {
-			position: relative;
-			z-index: 2;
-			text-align: center;
-			max-width: 800px;
-			margin: 0 auto;
-			color: white;
-
-			h1 {
-				font-size: clamp(2.5rem, 5vw, 4rem);
-				line-height: 1.2;
-				margin-bottom: 1.5rem;
-				font-weight: 700;
-			}
-
-			.subtitle {
-				font-size: clamp(1.1rem, 2vw, 1.5rem);
-				color: rgba(255, 255, 255, 0.8);
-				margin-bottom: 2rem;
-				line-height: 1.6;
-			}
-		}
-
-		.hero-background {
-			position: absolute;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			background: 
-				radial-gradient(circle at top right, 
-					rgba(var(--accent-light), 0.15) 0%, 
-					transparent 60%),
-				radial-gradient(circle at bottom left, 
-					rgba(var(--accent), 0.15) 0%, 
-					transparent 60%);
-			z-index: 1;
-		}
-
-		.gradient-overlay {
-			position: absolute;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			background: linear-gradient(
-				180deg,
-				rgba(19, 21, 26, 0.7) 0%,
-				rgba(19, 21, 26, 0.9) 70%,
-				#13151a 100%
-			);
-		}
-	}
-
-	.cta-buttons {
-		display: flex;
-		gap: 1rem;
-		justify-content: center;
-		margin-top: 2rem;
-
-		@media (max-width: 576px) {
-			flex-direction: column;
-			align-items: center;
-		}
-
-		.cta-button {
-			padding: 0.8rem 2rem;
-			border-radius: 30px;
-			font-size: 1.1rem;
-			font-weight: 500;
-			text-decoration: none;
-			transition: all 0.3s ease;
-			border: 2px solid transparent;
-
-			&.primary {
-				background: rgb(var(--accent));
-				color: white;
-
-				&:hover {
-					background: rgba(var(--accent), 0.8);
-					transform: translateY(-2px);
-				}
-			}
-
-			&.secondary {
-				background: transparent;
-				border-color: rgba(var(--accent), 0.5);
-				color: rgb(var(--accent-light));
-
-				&:hover {
-					border-color: rgb(var(--accent));
-					background: rgba(var(--accent), 0.1);
-					transform: translateY(-2px);
-				}
-			}
-		}
-	}
-
-	.featured-posts {
-		max-width: 1200px;
+		text-align: center;
+		padding: 6rem 0;
+		max-width: 800px;
 		margin: 0 auto;
-		padding: 4rem 2rem;
 
-		h2 {
-			font-size: 2rem;
-			text-align: center;
-			margin-bottom: 3rem;
-			color: white;
-			position: relative;
-			display: inline-block;
-			left: 50%;
-			transform: translateX(-50%);
-
-			&::after {
-				content: '';
-				position: absolute;
-				bottom: -10px;
-				left: 0;
-				right: 0;
-				height: 2px;
-				background: rgb(var(--accent));
-				transform: scaleX(0.6);
-				transition: transform 0.3s ease;
-			}
-
-			&:hover::after {
-				transform: scaleX(1);
-			}
+		h1 {
+			font-size: clamp(2.5rem, 5vw, 4rem);
+			line-height: 1.2;
+			margin-bottom: 1.5rem;
 		}
 
-		.card-grid {
-			display: grid;
-			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-			gap: 2rem;
-			padding: 0;
+		p {
+			font-size: clamp(1.1rem, 2vw, 1.3rem);
+			color: rgba(255, 255, 255, 0.8);
+			margin-bottom: 2rem;
 		}
 	}
 
@@ -202,5 +108,162 @@ import "../styles/global.css";
 		-webkit-text-fill-color: transparent;
 		background-size: 400%;
 		background-position: 0%;
+	}
+
+	.cta-buttons {
+		display: flex;
+		gap: 1rem;
+		justify-content: center;
+	}
+
+	.button {
+		display: inline-block;
+		padding: 0.8rem 1.6rem;
+		border-radius: 0.5rem;
+		background: rgba(255, 255, 255, 0.1);
+		color: white;
+		font-weight: 500;
+		text-decoration: none;
+		transition: all 0.2s ease;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+
+		&:hover {
+			background: rgba(255, 255, 255, 0.2);
+			transform: translateY(-2px);
+		}
+
+		&.primary {
+			background: rgb(var(--accent));
+			border-color: rgb(var(--accent));
+
+			&:hover {
+				background: rgb(var(--accent-light));
+			}
+		}
+
+		&.outline {
+			background: transparent;
+			border: 1px solid rgb(var(--accent));
+			color: rgb(var(--accent));
+
+			&:hover {
+				background: rgb(var(--accent));
+				color: white;
+			}
+		}
+	}
+
+	.featured-posts {
+		padding: 4rem 0;
+
+		h2 {
+			font-size: 2rem;
+			margin-bottom: 2rem;
+			text-align: center;
+		}
+	}
+
+	.blog-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 2rem;
+		margin-bottom: 3rem;
+	}
+
+	.view-all {
+		text-align: center;
+	}
+
+	.topics {
+		padding: 4rem 0;
+		background: rgba(255, 255, 255, 0.02);
+		border-top: 1px solid rgba(255, 255, 255, 0.1);
+		border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+		h2 {
+			font-size: 2rem;
+			margin-bottom: 2rem;
+			text-align: center;
+		}
+	}
+
+	.topics-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 2rem;
+	}
+
+	.topic-card {
+		background: rgba(255, 255, 255, 0.05);
+		padding: 2rem;
+		border-radius: 1rem;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		transition: all 0.3s ease;
+
+		&:hover {
+			background: rgba(255, 255, 255, 0.1);
+			transform: translateY(-5px);
+		}
+
+		h3 {
+			font-size: 1.5rem;
+			margin-bottom: 1rem;
+			color: rgb(var(--accent));
+		}
+
+		p {
+			color: rgba(255, 255, 255, 0.8);
+			line-height: 1.6;
+		}
+	}
+
+	.newsletter {
+		padding: 6rem 0;
+		text-align: center;
+
+		.newsletter-content {
+			max-width: 600px;
+			margin: 0 auto;
+		}
+
+		h2 {
+			font-size: 2rem;
+			margin-bottom: 1rem;
+		}
+
+		p {
+			color: rgba(255, 255, 255, 0.8);
+			margin-bottom: 2rem;
+		}
+	}
+
+	.newsletter-form {
+		display: flex;
+		gap: 1rem;
+		max-width: 500px;
+		margin: 0 auto;
+
+		@media (max-width: 576px) {
+			flex-direction: column;
+		}
+
+		input {
+			flex: 1;
+			padding: 0.8rem 1.2rem;
+			border-radius: 0.5rem;
+			border: 1px solid rgba(255, 255, 255, 0.1);
+			background: rgba(255, 255, 255, 0.05);
+			color: white;
+			font-size: 1rem;
+
+			&:focus {
+				outline: none;
+				border-color: rgb(var(--accent));
+			}
+
+			&::placeholder {
+				color: rgba(255, 255, 255, 0.5);
+			}
+		}
 	}
 </style>

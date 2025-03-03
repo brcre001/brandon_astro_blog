@@ -1,0 +1,98 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Container from '../../../components/Container.astro';
+import BlogCard from '../../../components/BlogCard.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+    const posts = await getCollection('blog');
+    const tags = [...new Set(posts.flatMap(post => post.data.tags || []))];
+    
+    return tags.map(tag => ({
+        params: { tag: tag.toLowerCase() },
+        props: { 
+            tag,
+            posts: posts.filter(post => 
+                post.data.tags?.map(t => t.toLowerCase()).includes(tag.toLowerCase())
+            ).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+        },
+    }));
+}
+
+const { tag, posts } = Astro.props;
+const title = `${tag} - Blog Posts | Brandon's Web Development Journey`;
+const description = `Explore articles about ${tag} and related topics in web development and technology.`;
+---
+
+<Layout title={title} description={description}>
+    <main>
+        <Container>
+            <section class="tag-header">
+                <h1>Posts tagged "{tag}"</h1>
+                <p>Explore articles related to {tag}</p>
+            </section>
+
+            <section class="blog-grid">
+                {posts.map(post => (
+                    <BlogCard
+                        title={post.data.title}
+                        description={post.data.description}
+                        pubDate={post.data.pubDate}
+                        url={`/blog/${post.slug}`}
+                        image={post.data.image}
+                        tags={post.data.tags}
+                    />
+                ))}
+            </section>
+
+            <div class="back-link">
+                <a href="/blog">← Back to all posts</a>
+            </div>
+        </Container>
+    </main>
+</Layout>
+
+<style lang="scss">
+    .tag-header {
+        text-align: center;
+        margin: 4rem 0;
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background-image: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 400%;
+            background-position: 0%;
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+    }
+
+    .blog-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .back-link {
+        text-align: center;
+        margin: 2rem 0 4rem;
+
+        a {
+            color: rgb(var(--accent));
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+
+            &:hover {
+                color: white;
+            }
+        }
+    }
+</style> 
