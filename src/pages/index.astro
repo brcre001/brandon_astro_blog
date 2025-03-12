@@ -7,12 +7,9 @@ import { getCollection } from 'astro:content';
 const posts = (await getCollection('blog'))
 	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
 	.slice(0, 3);
-
-const title = "Brandon's Web Development Blog";
-const description = "Explore web development tutorials, programming insights, and modern technology solutions.";
 ---
 
-<Layout title={title} description={description}>
+<Layout title="Brandon's Web Development Blog" description="Explore web development tutorials, programming insights, and modern technology solutions.">
 	<main>
 		<Container>
 			<section class="hero">
