@@ -1,154 +1,66 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import { getCollection } from "astro:content";
-import { formatDate } from "../utils/date";  // We'll create this utility
+import Layout from '../layouts/Layout.astro';
+import Container from '../components/Container.astro';
+import BlogCard from '../components/BlogCard.astro';
+import { getCollection } from 'astro:content';
 
-// Get all blog posts and sort by date
 const posts = (await getCollection('blog')).sort(
     (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
+
+const title = "Blog - Brandon's Web Development Journey";
+const description = "Explore articles about web development, programming, and modern technology solutions.";
 ---
 
-<Layout title="Blog | Brandon's Dev Blog">
-	<main>
-		<section class="blog-header">
-			<h1 class="text-gradient">Latest Blog Posts</h1>
-			<p>Thoughts, tutorials, and insights about web development</p>
-		</section>
+<Layout title={title} description={description}>
+    <main>
+        <Container>
+            <section class="blog-header">
+                <h1>Blog</h1>
+                <p>Thoughts, tutorials, and insights about web development and technology.</p>
+            </section>
 
-		<section class="blog-grid">
-			{posts.map((post) => (
-				<article class="blog-card">
-					{post.data.image && (
-						<div class="card-image">
-							<img src={post.data.image} alt={post.data.title} />
-						</div>
-					)}
-					<div class="card-content">
-						<div class="card-meta">
-							<span class="date">{formatDate(post.data.pubDate)}</span>
-							{post.data.tags && (
-								<div class="tags">
-									{post.data.tags.map((tag) => (
-										<span class="tag">{tag}</span>
-									))}
-								</div>
-							)}
-						</div>
-						<h2>{post.data.title}</h2>
-						<p>{post.data.description}</p>
-						<a href={`/blog/${post.slug}`} class="read-more">
-							Read More →
-						</a>
-					</div>
-				</article>
-			))}
-		</section>
-	</main>
+            <section class="blog-grid">
+                {posts.map(post => (
+                    <BlogCard
+                        title={post.data.title}
+                        description={post.data.description}
+                        pubDate={post.data.pubDate}
+                        url={`/blog/${post.slug}`}
+                        image={post.data.image}
+                        tags={post.data.tags}
+                    />
+                ))}
+            </section>
+        </Container>
+    </main>
 </Layout>
 
 <style lang="scss">
-	main {
-		margin: auto;
-		padding: 2rem;
-		max-width: 1200px;
-		padding-top: 3rem;
-	}
+    .blog-header {
+        text-align: center;
+        margin: 4rem 0;
 
-	.blog-header {
-		text-align: center;
-		margin-bottom: 4rem;
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background-image: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 400%;
+            background-position: 0%;
+        }
 
-		h1 {
-			font-size: 3rem;
-			margin-bottom: 1rem;
-		}
+        p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+    }
 
-		p {
-			color: #888;
-			font-size: 1.2rem;
-		}
-	}
-
-	.blog-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-		gap: 2rem;
-	}
-
-	.blog-card {
-		background: rgba(255, 255, 255, 0.05);
-		border-radius: 15px;
-		overflow: hidden;
-		transition: transform 0.2s ease;
-		border: 1px solid rgba(255, 255, 255, 0.1);
-
-		&:hover {
-			transform: translateY(-5px);
-		}
-
-		.card-image {
-			width: 100%;
-			height: 200px;
-			overflow: hidden;
-
-			img {
-				width: 100%;
-				height: 100%;
-				object-fit: cover;
-			}
-		}
-
-		.card-content {
-			padding: 1.5rem;
-
-			h2 {
-				font-size: 1.5rem;
-				margin: 0.5rem 0;
-				color: white;
-			}
-
-			p {
-				color: #888;
-				margin-bottom: 1rem;
-			}
-		}
-
-		.card-meta {
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			margin-bottom: 1rem;
-
-			.date {
-				color: #666;
-				font-size: 0.9rem;
-			}
-
-			.tags {
-				display: flex;
-				gap: 0.5rem;
-
-				.tag {
-					background: rgba(255, 255, 255, 0.1);
-					padding: 0.2rem 0.6rem;
-					border-radius: 15px;
-					font-size: 0.8rem;
-					color: #888;
-				}
-			}
-		}
-
-		.read-more {
-			display: inline-block;
-			color: var(--accent);
-			text-decoration: none;
-			font-weight: 500;
-			margin-top: 1rem;
-
-			&:hover {
-				text-decoration: underline;
-			}
-		}
-	}
+    .blog-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-bottom: 4rem;
+    }
 </style>
