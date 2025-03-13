@@ -13,10 +13,10 @@ const posts = (await getCollection('blog'))
 	<main>
 		<Container>
 			<section class="hero">
-				<h1>Welcome to <span class="text-gradient">Brandon's Blog</span></h1>
+				<h1><span class="text-gradient">Brandon's Software Development</span></h1>
 				<p>
-					Exploring the world of web development, one line of code at a time.
-					Here you'll find tutorials, insights, and best practices for modern web development.
+					Exploring the world of software development, one line of code at a time.<br>
+					Building clean, efficient, and creative web solutions.
 				</p>
 				<div class="cta-buttons">
 					<a href="/blog" class="button primary">Read Blog</a>
@@ -64,17 +64,6 @@ const posts = (await getCollection('blog'))
 					</a>
 				</div>
 			</section>
-
-			<section class="newsletter">
-				<div class="newsletter-content">
-					<h2>Stay Updated</h2>
-					<p>Subscribe to my newsletter for the latest web development tips and tutorials.</p>
-					<form class="newsletter-form">
-						<input type="email" placeholder="Enter your email" required>
-						<button type="submit" class="button primary">Subscribe</button>
-					</form>
-				</div>
-			</section>
 		</Container>
 	</main>
 </Layout>
@@ -96,6 +85,14 @@ const posts = (await getCollection('blog'))
 			font-size: clamp(1.1rem, 2vw, 1.3rem);
 			color: rgba(255, 255, 255, 0.8);
 			margin-bottom: 2rem;
+		}
+
+		br {
+				display: none;
+
+			@media screen and (min-width: 665px) {
+				display: block;
+			}
 		}
 	}
 
@@ -211,56 +208,6 @@ const posts = (await getCollection('blog'))
 		p {
 			color: rgba(255, 255, 255, 0.8);
 			line-height: 1.6;
-		}
-	}
-
-	.newsletter {
-		padding: 6rem 0;
-		text-align: center;
-
-		.newsletter-content {
-			max-width: 600px;
-			margin: 0 auto;
-		}
-
-		h2 {
-			font-size: 2rem;
-			margin-bottom: 1rem;
-		}
-
-		p {
-			color: rgba(255, 255, 255, 0.8);
-			margin-bottom: 2rem;
-		}
-	}
-
-	.newsletter-form {
-		display: flex;
-		gap: 1rem;
-		max-width: 500px;
-		margin: 0 auto;
-
-		@media (max-width: 576px) {
-			flex-direction: column;
-		}
-
-		input {
-			flex: 1;
-			padding: 0.8rem 1.2rem;
-			border-radius: 0.5rem;
-			border: 1px solid rgba(255, 255, 255, 0.1);
-			background: rgba(255, 255, 255, 0.05);
-			color: white;
-			font-size: 1rem;
-
-			&:focus {
-				outline: none;
-				border-color: rgb(var(--accent));
-			}
-
-			&::placeholder {
-				color: rgba(255, 255, 255, 0.5);
-			}
 		}
 	}
 </style>
