@@ -11,20 +11,20 @@ const posts = (await getCollection('blog'))
 
 <Layout title="Brandon's Web Development Blog" description="Explore web development tutorials, programming insights, and modern technology solutions.">
 	<main>
-		<Container>
-			<section class="hero">
-				<h1><span class="text-gradient">Brandon's Software Development</span></h1>
-				<p>
-					Exploring the world of software development, one line of code at a time.<br>
-					Building clean, efficient, and creative web solutions.
-				</p>
-				<div class="cta-buttons">
-					<a href="/blog" class="button primary">Read Blog</a>
-					<a href="/about" class="button">About Me</a>
-				</div>
-			</section>
+		<section class="hero">
+			<h1><span class="text-gradient">B.DEV Web Development</span></h1>
+			<p>
+				Exploring the world of software development, one line of code at a time.<br>
+				Building clean, efficient, and creative web solutions.
+			</p>
+			<div class="cta-buttons">
+				<a href="/blog" class="button primary">Read Blog</a>
+				<a href="/about" class="button">About Me</a>
+			</div>
+		</section>
 
-			<section class="featured-posts">
+		<section class="featured-posts">
+			<div class="featured-posts-inner-container">
 				<h2>Latest Posts</h2>
 				<div class="blog-grid">
 					{posts.map(post => (
@@ -41,10 +41,12 @@ const posts = (await getCollection('blog'))
 				<div class="view-all">
 					<a href="/blog" class="button outline">View All Posts</a>
 				</div>
-			</section>
+			</div>
+		</section>
 
-			<section class="topics">
-				<h2>Topics I Write About</h2>
+		<section class="topics">
+			<div class="topics-inner-container">
+				<h2>Blog Topics</h2>
 				<div class="topics-grid">
 					<a href="/blog/tag/javascript" class="topic-card">
 						<h3>JavaScript</h3>
@@ -63,15 +65,15 @@ const posts = (await getCollection('blog'))
 						<p>Building fast websites with Astro and modern tools.</p>
 					</a>
 				</div>
-			</section>
-		</Container>
+			</div>
+		</section>
 	</main>
 </Layout>
 
 <style lang="scss">
 	.hero {
 		text-align: center;
-		padding: 6rem 0;
+		padding: 6rem 2rem;
 		max-width: 800px;
 		margin: 0 auto;
 
@@ -148,12 +150,16 @@ const posts = (await getCollection('blog'))
 	}
 
 	.featured-posts {
-		padding: 4rem 0;
+		.featured-posts-inner-container {
+			padding: 4rem 2rem;
+			max-width: 1200px;
+			margin: 0 auto;
 
-		h2 {
-			font-size: 2rem;
-			margin-bottom: 2rem;
-			text-align: center;
+			h2 {
+				font-size: 2rem;
+				margin-bottom: 2rem;
+				text-align: center;
+			}
 		}
 	}
 
@@ -169,45 +175,51 @@ const posts = (await getCollection('blog'))
 	}
 
 	.topics {
-		padding: 4rem 0;
 		background: rgba(255, 255, 255, 0.02);
 		border-top: 1px solid rgba(255, 255, 255, 0.1);
 		border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 
-		h2 {
-			font-size: 2rem;
-			margin-bottom: 2rem;
-			text-align: center;
-		}
-	}
+		.topics-inner-container {
+			
+			max-width: 1200px;
+			margin: 0px auto;
+			padding: 4rem 2rem;
 
-	.topics-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-		gap: 2rem;
-	}
+			h2 {
+				font-size: 2rem;
+				margin-bottom: 2rem;
+				text-align: center;
+			}
 
-	.topic-card {
-		background: rgba(255, 255, 255, 0.05);
-		padding: 2rem;
-		border-radius: 1rem;
-		border: 1px solid rgba(255, 255, 255, 0.1);
-		transition: all 0.3s ease;
+			.topics-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+				gap: 2rem;
 
-		&:hover {
-			background: rgba(255, 255, 255, 0.1);
-			transform: translateY(-5px);
-		}
+				.topic-card {
+					background: rgba(255, 255, 255, 0.05);
+					padding: 2rem;
+					border-radius: 1rem;
+					border: 1px solid rgba(255, 255, 255, 0.1);
+					transition: all 0.3s ease;
 
-		h3 {
-			font-size: 1.5rem;
-			margin-bottom: 1rem;
-			color: rgb(var(--accent));
-		}
+					&:hover {
+						background: rgba(255, 255, 255, 0.1);
+						transform: translateY(-5px);
+					}
 
-		p {
-			color: rgba(255, 255, 255, 0.8);
-			line-height: 1.6;
+					h3 {
+						font-size: 1.5rem;
+						margin-bottom: 1rem;
+						color: rgb(var(--accent));
+					}
+
+					p {
+						color: rgba(255, 255, 255, 0.8);
+						line-height: 1.6;
+					}
+				}
+			}
 		}
 	}
 </style>
