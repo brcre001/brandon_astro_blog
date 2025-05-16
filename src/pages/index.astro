@@ -1,225 +1,237 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Container from '../components/Container.astro';
-import BlogCard from '../components/BlogCard.astro';
-import { getCollection } from 'astro:content';
+import Layout from "../layouts/Layout.astro";
+import Container from "../components/Container.astro";
+import BlogCard from "../components/BlogCard.astro";
+import { getCollection } from "astro:content";
 
-const posts = (await getCollection('blog'))
-	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-	.slice(0, 3);
+const posts = (await getCollection("blog"))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
 ---
 
-<Layout title="Brandon's Web Development Blog" description="Explore web development tutorials, programming insights, and modern technology solutions.">
-	<main>
-		<section class="hero">
-			<h1><span class="text-gradient">Building Modern Websites & Scalable Software Solutions</span></h1>
-			<p>
-				Exploring the world of software development, one line of code at a time.<br>
-				Building clean, efficient, and creative web solutions.
-			</p>
-			<div class="cta-buttons">
-				<a href="/blog" class="button primary">Read Blog</a>
-				<a href="/about" class="button">About Me</a>
-			</div>
-		</section>
+<Layout
+  title="Brandon's Web Development Blog"
+  description="Explore web development tutorials, programming insights, and modern technology solutions."
+>
+  <main>
+    <section class="hero">
+      <div class="hero-inner-container">
+        <h1><span>Hi, I'm Brandon, a full-stack developer</span></h1>
+        <p>
+          I'm a software developer with a passion for building modern websites
+          and scalable software solutions, one line of code at a time.
+        </p>
+		<p>
+			Here's where I write about my experiences and learnings in the world of
+          	software development.
+		</p>
+      </div>
+    </section>
 
-		<section class="featured-posts">
-			<div class="featured-posts-inner-container">
-				<h2>Latest Posts</h2>
-				<div class="blog-grid">
-					{posts.map(post => (
-						<BlogCard
-							title={post.data.title}
-							description={post.data.description}
-							pubDate={post.data.pubDate}
-							url={`/blog/${post.slug}`}
-							image={post.data.image}
-							tags={post.data.tags}
-						/>
-					))}
-				</div>
-				<div class="view-all">
-					<a href="/blog" class="button outline">View All Posts</a>
-				</div>
-			</div>
-		</section>
+    <section class="featured-posts">
+      <div class="featured-posts-inner-container">
+        <h2>Latest Posts</h2>
+        <div class="blog-grid">
+          {
+            posts.map((post) => (
+              <BlogCard
+                title={post.data.title}
+                description={post.data.description}
+                pubDate={post.data.pubDate}
+                url={`/blog/${post.slug}`}
+                image={post.data.image}
+                tags={post.data.tags}
+              />
+            ))
+          }
+        </div>
+        <div class="view-all">
+          <a href="/blog" class="button outline">View All Posts</a>
+        </div>
+      </div>
+    </section>
 
-		<section class="topics">
-			<div class="topics-inner-container">
-				<h2>Blog Topics</h2>
-				<div class="topics-grid">
-					<a href="/blog/tag/javascript" class="topic-card">
-						<h3>JavaScript</h3>
-						<p>Modern JavaScript features, best practices, and tutorials.</p>
-					</a>
-					<a href="/blog/tag/react" class="topic-card">
-						<h3>React</h3>
-						<p>React development, hooks, patterns, and optimization techniques.</p>
-					</a>
-					<a href="/blog/tag/web-development" class="topic-card">
-						<h3>Web Development</h3>
-						<p>General web development topics, tools, and technologies.</p>
-					</a>
-					<a href="/blog/tag/astro" class="topic-card">
-						<h3>Astro</h3>
-						<p>Building fast websites with Astro and modern tools.</p>
-					</a>
-				</div>
-			</div>
-		</section>
-	</main>
+    <section class="topics">
+      <div class="topics-inner-container">
+        <h2>Blog Topics</h2>
+        <div class="topics-grid">
+          <a href="/blog/tag/javascript" class="topic-card">
+            <h3>JavaScript</h3>
+            <p>Modern JavaScript features, best practices, and tutorials.</p>
+          </a>
+          <a href="/blog/tag/react" class="topic-card">
+            <h3>React</h3>
+            <p>
+              React development, hooks, patterns, and optimization techniques.
+            </p>
+          </a>
+          <a href="/blog/tag/web-development" class="topic-card">
+            <h3>Web Development</h3>
+            <p>General web development topics, tools, and technologies.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
 </Layout>
 
 <style lang="scss">
-	.hero {
-		text-align: center;
-		padding: 6rem 2rem;
-		max-width: 800px;
-		margin: 0 auto;
+  .hero {
+    width: 100%;
+    background: #202020;
+    .hero-inner-container {
+      text-align: center;
+      padding: 10rem 2rem;
+      max-width: 800px;
+      margin: 0 auto;
 
-		h1 {
-			font-size: clamp(2.5rem, 5vw, 4rem);
-			line-height: 1.2;
-			margin-bottom: 1.5rem;
+      h1 {
+        color: rgb(var(--accent));
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        line-height: 1.2;
+        margin-bottom: 3rem;
+      }
+
+      p {
+        font-size: clamp(1.1rem, 2vw, 1.3rem);
+        color: #ffffff;
+        
+		&:first-of-type {
+			margin-bottom: 3rem;
 		}
+      }
 
-		p {
-			font-size: clamp(1.1rem, 2vw, 1.3rem);
-			color: rgba(255, 255, 255, 0.8);
-			margin-bottom: 2rem;
-		}
+      br {
+        display: none;
 
-		br {
-				display: none;
+        @media screen and (min-width: 665px) {
+          display: block;
+        }
+      }
+    }
+  }
 
-			@media screen and (min-width: 665px) {
-				display: block;
-			}
-		}
-	}
+  .text-gradient {
+    background-image: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0%;
+  }
 
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-	}
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
 
-	.cta-buttons {
-		display: flex;
-		gap: 1rem;
-		justify-content: center;
-	}
+  .button {
+    display: inline-block;
+    padding: 0.8rem 1.6rem;
+    border-radius: 0.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 
-	.button {
-		display: inline-block;
-		padding: 0.8rem 1.6rem;
-		border-radius: 0.5rem;
-		background: rgba(255, 255, 255, 0.1);
-		color: white;
-		font-weight: 500;
-		text-decoration: none;
-		transition: all 0.2s ease;
-		border: 1px solid rgba(255, 255, 255, 0.1);
+    &:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
 
-		&:hover {
-			background: rgba(255, 255, 255, 0.2);
-			transform: translateY(-2px);
-		}
+    &.primary {
+      background: rgb(var(--accent));
+      border-color: rgb(var(--accent));
 
-		&.primary {
-			background: rgb(var(--accent));
-			border-color: rgb(var(--accent));
+      &:hover {
+        background: rgb(var(--accent-light));
+      }
+    }
 
-			&:hover {
-				background: rgb(var(--accent-light));
-			}
-		}
+    &.outline {
+      background: transparent;
+      border: 1px solid rgb(var(--accent));
+      color: rgb(var(--accent));
 
-		&.outline {
-			background: transparent;
-			border: 1px solid rgb(var(--accent));
-			color: rgb(var(--accent));
+      &:hover {
+        background: rgb(var(--accent));
+        color: white;
+      }
+    }
+  }
 
-			&:hover {
-				background: rgb(var(--accent));
-				color: white;
-			}
-		}
-	}
+  .featured-posts {
+    .featured-posts-inner-container {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
 
-	.featured-posts {
-		.featured-posts-inner-container {
-			padding: 4rem 2rem;
-			max-width: 1200px;
-			margin: 0 auto;
+      h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        text-align: center;
+      }
+    }
+  }
 
-			h2 {
-				font-size: 2rem;
-				margin-bottom: 2rem;
-				text-align: center;
-			}
-		}
-	}
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
 
-	.blog-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-		gap: 2rem;
-		margin-bottom: 3rem;
-	}
+  .view-all {
+    text-align: center;
+  }
 
-	.view-all {
-		text-align: center;
-	}
+  .topics {
+    background: rgba(255, 255, 255, 0.02);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 
-	.topics {
-		background: rgba(255, 255, 255, 0.02);
-		border-top: 1px solid rgba(255, 255, 255, 0.1);
-		border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    .topics-inner-container {
+      max-width: 1200px;
+      margin: 0px auto;
+      padding: 4rem 2rem;
 
-		.topics-inner-container {
-			
-			max-width: 1200px;
-			margin: 0px auto;
-			padding: 4rem 2rem;
+      h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        text-align: center;
+      }
 
-			h2 {
-				font-size: 2rem;
-				margin-bottom: 2rem;
-				text-align: center;
-			}
+      .topics-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
 
-			.topics-grid {
-				display: grid;
-				grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-				gap: 2rem;
+        .topic-card {
+          background: rgba(255, 255, 255, 0.05);
+          padding: 2rem;
+          border-radius: 1rem;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          transition: all 0.3s ease;
 
-				.topic-card {
-					background: rgba(255, 255, 255, 0.05);
-					padding: 2rem;
-					border-radius: 1rem;
-					border: 1px solid rgba(255, 255, 255, 0.1);
-					transition: all 0.3s ease;
+          &:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+          }
 
-					&:hover {
-						background: rgba(255, 255, 255, 0.1);
-						transform: translateY(-5px);
-					}
+          h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: rgb(var(--accent));
+          }
 
-					h3 {
-						font-size: 1.5rem;
-						margin-bottom: 1rem;
-						color: rgb(var(--accent));
-					}
-
-					p {
-						color: rgba(255, 255, 255, 0.8);
-						line-height: 1.6;
-					}
-				}
-			}
-		}
-	}
+          p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+          }
+        }
+      }
+    }
+  }
 </style>

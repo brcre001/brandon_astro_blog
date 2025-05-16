@@ -23,6 +23,9 @@ const currentPath = pathname.slice(1); // remove the first "/"
                         <a href="/about" class={currentPath === "about" ? "active" : ""}>
                             About
                         </a>
+                        <a href="/portfolio" class={currentPath === "portfolio" ? "active" : ""}>
+                            Portfolio
+                        </a>
                         <a href="/blog" class={currentPath.startsWith("blog") ? "active" : ""}>
                             Blog
                         </a>

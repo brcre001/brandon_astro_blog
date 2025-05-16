@@ -147,9 +147,11 @@ import Layout from "../layouts/Layout.astro";
                 padding: 0.5rem;
                 border-radius: 20px;
                 font-size: 0.9rem;
+                transition: all 0.3s ease;
 
                 &:hover {
-                    background: rgba(255, 255, 255, 0.2);
+                    background: rgb(var(--accent));
+                    transform: translateY(-3px);
                 }
             }
         }
