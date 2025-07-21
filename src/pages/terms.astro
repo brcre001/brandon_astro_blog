@@ -1,57 +1,219 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Container from '../components/Container.astro';
 ---
 
-<Layout title="Terms of Service">
-	<main class="min-h-screen bg-gray-50 py-12">
-		<div class="container mx-auto px-4 max-w-3xl">
-			<div class="bg-white rounded-lg shadow-sm p-8">
-				<h1 class="text-4xl font-bold mb-8 text-gray-900 border-b pb-4">Terms of Service</h1>
-				
-				<div class="prose prose-lg max-w-none">
-					<p class="text-sm text-gray-500 mb-8">Last updated: {new Date().toLocaleDateString()}</p>
+<Layout title="Terms of Service - Brandon's Blog" description="Terms of service for Brandon's web development blog and services">
+	<main>
+		<section class="legal-header">
+			<Container>
+				<h1 class="text-gradient">Terms of Service</h1>
+				<p class="last-updated">Last updated: {new Date().toLocaleDateString()}</p>
+			</Container>
+		</section>
 
-					<h2 class="text-2xl font-semibold mt-8 mb-4 text-gray-800">1. Agreement to Terms</h2>
-					<p class="mb-6 text-gray-700 leading-relaxed">
-						By accessing and using Brandon's Astro Blog, you agree to be bound by these Terms of Service. If you disagree with any part of these terms, you may not access our website.
-					</p>
+		<section class="legal-content">
+			<Container>
+				<div class="content-wrapper">
+					<div class="legal-section">
+						<h2>1. Agreement to Terms</h2>
+						<p>
+							By accessing and using Brandon's Web Development Blog and services, you agree to be bound by these Terms of Service. If you disagree with any part of these terms, you may not access our website or use our services.
+						</p>
+					</div>
 
-					<h2 class="text-2xl font-semibold mt-8 mb-4 text-gray-800">2. Intellectual Property</h2>
-					<p class="mb-6 text-gray-700 leading-relaxed">
-						The content on this website, including but not limited to text, graphics, logos, images, and software, is the property of Brandon's Astro Blog and is protected by copyright laws. You may not use, reproduce, or distribute any content from this website without our express written permission.
-					</p>
+					<div class="legal-section">
+						<h2>2. Description of Service</h2>
+						<p>
+							This website provides web development content, tutorials, and professional services. I offer:
+						</p>
+						<ul>
+							<li>Educational blog content about web development</li>
+							<li>Technical tutorials and guides</li>
+							<li>Web development consulting services</li>
+							<li>Custom web application development</li>
+						</ul>
+					</div>
 
-					<h2 class="text-2xl font-semibold mt-8 mb-4 text-gray-800">3. User Conduct</h2>
-					<p class="mb-4 text-gray-700">When using our website, you agree not to:</p>
-					<ul class="list-disc pl-6 mb-6 text-gray-700 space-y-2">
-						<li>Violate any applicable laws or regulations</li>
-						<li>Impersonate any person or entity</li>
-						<li>Interfere with the proper functioning of the website</li>
-						<li>Engage in any harmful or malicious activities</li>
-						<li>Post or transmit any unlawful, threatening, or harmful content</li>
-					</ul>
+					<div class="legal-section">
+						<h2>3. Intellectual Property</h2>
+						<p>
+							The content on this website, including but not limited to text, graphics, logos, images, code examples, and software, is my property and is protected by copyright laws. You may:
+						</p>
+						<ul>
+							<li>Read and share links to blog posts</li>
+							<li>Use code examples for learning and personal projects</li>
+							<li>Quote brief excerpts with proper attribution</li>
+						</ul>
+						<p>
+							You may not reproduce, distribute, or create derivative works from the content without express written permission.
+						</p>
+					</div>
 
-					<h2 class="text-2xl font-semibold mt-8 mb-4 text-gray-800">4. Disclaimer</h2>
-					<p class="mb-6 text-gray-700 leading-relaxed">
-						The information provided on this website is for general informational purposes only. We make no warranties about the completeness, reliability, or accuracy of this information. Any reliance you place on such information is strictly at your own risk.
-					</p>
+					<div class="legal-section">
+						<h2>4. User Conduct</h2>
+						<p>When using this website, you agree not to:</p>
+						<ul>
+							<li>Violate any applicable laws or regulations</li>
+							<li>Impersonate any person or entity</li>
+							<li>Interfere with the proper functioning of the website</li>
+							<li>Engage in any harmful or malicious activities</li>
+							<li>Post or transmit any unlawful, threatening, or harmful content</li>
+							<li>Attempt to gain unauthorized access to the website or related systems</li>
+						</ul>
+					</div>
 
-					<h2 class="text-2xl font-semibold mt-8 mb-4 text-gray-800">5. Limitation of Liability</h2>
-					<p class="mb-6 text-gray-700 leading-relaxed">
-						Brandon's Astro Blog shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of or inability to use the website.
-					</p>
+					<div class="legal-section">
+						<h2>5. Professional Services</h2>
+						<p>
+							For web development consulting and custom projects:
+						</p>
+						<ul>
+							<li>All project terms will be outlined in a separate contract</li>
+							<li>Payment terms and project scope will be clearly defined</li>
+							<li>Deliverables and timelines will be agreed upon in writing</li>
+							<li>Source code ownership will be transferred upon full payment (unless otherwise specified)</li>
+						</ul>
+					</div>
 
-					<h2 class="text-2xl font-semibold mt-8 mb-4 text-gray-800">6. Changes to Terms</h2>
-					<p class="mb-6 text-gray-700 leading-relaxed">
-						We reserve the right to modify these terms at any time. We will notify users of any material changes by posting the new Terms of Service on this page.
-					</p>
+					<div class="legal-section">
+						<h2>6. Disclaimer</h2>
+						<p>
+							The information provided on this website is for general informational and educational purposes only. While I strive for accuracy, I make no warranties about the completeness, reliability, or accuracy of this information. Any reliance you place on such information is strictly at your own risk.
+						</p>
+						<p>
+							Code examples and tutorials are provided "as is" without warranty of any kind. Test thoroughly before using in production environments.
+						</p>
+					</div>
 
-					<h2 class="text-2xl font-semibold mt-8 mb-4 text-gray-800">7. Contact Information</h2>
-					<p class="mb-6 text-gray-700">
-						If you have any questions about these Terms of Service, please contact us through our contact page.
-					</p>
+					<div class="legal-section">
+						<h2>7. Limitation of Liability</h2>
+						<p>
+							Brandon's Web Development Blog and services shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of or inability to use the website or services, even if I have been advised of the possibility of such damages.
+						</p>
+					</div>
+
+					<div class="legal-section">
+						<h2>8. Changes to Terms</h2>
+						<p>
+							I reserve the right to modify these terms at any time. I will notify users of any material changes by posting the new Terms of Service on this page and updating the "Last updated" date. Your continued use of the website after changes constitutes acceptance of the new terms.
+						</p>
+					</div>
+
+					<div class="legal-section">
+						<h2>9. Termination</h2>
+						<p>
+							I may terminate or suspend your access to the website immediately, without prior notice, if you breach these Terms of Service.
+						</p>
+					</div>
+
+					<div class="legal-section">
+						<h2>10. Governing Law</h2>
+						<p>
+							These Terms shall be governed by and construed in accordance with the laws of Florida, United States, without regard to its conflict of law provisions.
+						</p>
+					</div>
+
+					<div class="legal-section">
+						<h2>11. Contact Information</h2>
+						<p>
+							If you have any questions about these Terms of Service, please contact me through the 
+							<a href="/contact">contact page</a> or email me directly at 
+							<a href="mailto:brandon.f.creed@gmail.com">brandon.f.creed@gmail.com</a>.
+						</p>
+					</div>
 				</div>
-			</div>
-		</div>
+			</Container>
+		</section>
 	</main>
-</Layout> 
+</Layout>
+
+<style lang="scss">
+	main {
+		color: white;
+		line-height: 1.6;
+	}
+
+	.legal-header {
+		padding: 6rem 0 4rem;
+		text-align: center;
+		background: linear-gradient(135deg, rgba(136, 58, 234, 0.1) 0%, rgba(49, 10, 101, 0.1) 100%);
+
+		h1 {
+			font-size: clamp(2.5rem, 5vw, 4rem);
+			margin-bottom: 1rem;
+		}
+
+		.last-updated {
+			color: rgba(255, 255, 255, 0.7);
+			font-size: 1rem;
+		}
+	}
+
+	.text-gradient {
+		background-image: var(--accent-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 400%;
+		background-position: 0%;
+	}
+
+	.legal-content {
+		padding: 4rem 0;
+
+		.content-wrapper {
+			max-width: 800px;
+			margin: 0 auto;
+		}
+
+		.legal-section {
+			margin-bottom: 3rem;
+			background: rgba(255, 255, 255, 0.03);
+			padding: 2rem;
+			border-radius: 1rem;
+			border: 1px solid rgba(255, 255, 255, 0.1);
+
+			h2 {
+				color: rgb(var(--accent-light));
+				font-size: 1.5rem;
+				margin-bottom: 1.5rem;
+				border-bottom: 1px solid rgba(136, 58, 234, 0.3);
+				padding-bottom: 0.5rem;
+			}
+
+			p {
+				color: rgba(255, 255, 255, 0.9);
+				margin-bottom: 1rem;
+				line-height: 1.7;
+			}
+
+			ul {
+				color: rgba(255, 255, 255, 0.9);
+				margin: 1rem 0 1rem 1.5rem;
+				
+				li {
+					margin-bottom: 0.5rem;
+					line-height: 1.6;
+				}
+			}
+
+			a {
+				color: rgb(var(--accent-light));
+				text-decoration: none;
+				border-bottom: 1px solid rgba(136, 58, 234, 0.3);
+				transition: all 0.2s ease;
+
+				&:hover {
+					color: rgb(var(--accent));
+					border-bottom-color: rgb(var(--accent));
+				}
+			}
+		}
+	}
+
+	@media (max-width: 768px) {
+		.legal-content .legal-section {
+			padding: 1.5rem;
+		}
+	}
+</style> 

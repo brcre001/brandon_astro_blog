@@ -1,162 +1,263 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Navigation from "../components/Navigation.astro";
+import Container from "../components/Container.astro";
 import Card from "../components/Card.astro";
-import "../styles/global.css";
 ---
 
-<Layout title="About | B.DEV">
+<Layout title="About Brandon - Full Stack Developer" description="Learn about Brandon, a passionate full-stack developer specializing in modern web technologies and creating exceptional digital experiences.">
     <main>
         <!-- Hero Section -->
         <section class="hero">
             <div class="hero-inner-container">
-                <h1 class="text-gradient">Crafting Digital Experiences</h1>
+                <h1 class="text-gradient">Building Digital Solutions That Matter</h1>
                 <p class="hero-text">
-                    We transform ideas into exceptional digital solutions, creating websites 
-                    and applications that make a lasting impact.
+                    I'm Brandon, a passionate full-stack developer with a love for creating 
+                    scalable web applications and solving complex problems with elegant code.
                 </p>
             </div>
         </section>
 
         <!-- About Section -->
         <section class="about-section">
-            <div class="about-section-inner-container">
+            <Container>
                 <div class="content-wrapper">
-                    <h2>Our Story</h2>
+                    <h2>My Journey</h2>
                     <p>
-                        With over a decade of experience in web development and design, 
-                        we've helped countless businesses establish their digital presence. 
-                        Our passion lies in creating seamless, user-friendly experiences 
-                        that drive results.
+                        With over 5 years of experience in web development, I've had the privilege 
+                        of working on diverse projects from startups to enterprise applications. 
+                        My journey began with a curiosity about how websites work, and has evolved 
+                        into a deep passion for crafting exceptional user experiences.
                     </p>
                     <p>
-                        We believe in staying ahead of the curve, continuously learning 
-                        and adapting to new technologies while maintaining our commitment 
-                        to quality and innovation.
+                        I believe in writing clean, maintainable code and staying current with 
+                        the latest technologies. When I'm not coding, you'll find me contributing 
+                        to open source projects, writing technical articles, or exploring new 
+                        frameworks and tools.
                     </p>
                 </div>
-            </div>
+            </Container>
         </section>
 
         <!-- Image & Text Section -->
         <section class="feature-section">
-            <div class="feature-section-inner-container">
-                <div class="image-container">
-                    <img src="/images/workspace.jpg" alt="Modern workspace with computers" />
+            <Container>
+                <div class="feature-section-inner-container">
+                    <div class="image-container">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=600&fit=crop&crop=face&auto=format" alt="Brandon - Full Stack Developer" />
+                    </div>
+                    <div class="text-container">
+                        <h2>My Approach</h2>
+                        <p>
+                            I focus on understanding your business needs first, then crafting 
+                            technical solutions that not only meet requirements but exceed 
+                            expectations. Every project is an opportunity to learn something 
+                            new and deliver exceptional value.
+                        </p>
+                        <ul class="feature-list">
+                            <li>✨ User-Centered Design</li>
+                            <li>🚀 Performance Optimization</li>
+                            <li>💡 Modern Technology Stack</li>
+                            <li>🤝 Clear Communication</li>
+                            <li>📱 Mobile-First Development</li>
+                            <li>⚡ Rapid Prototyping</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="text-container">
-                    <h2>How We Work</h2>
-                    <p>
-                        Our approach combines technical expertise with creative problem-solving. 
-                        We focus on delivering solutions that are not just visually stunning 
-                        but also performant and scalable.
-                    </p>
-                    <ul class="feature-list">
-                        <li>✨ Modern Technology Stack</li>
-                        <li>🚀 Performance-First Approach</li>
-                        <li>💡 Innovative Solutions</li>
-                        <li>🤝 Collaborative Development</li>
-                    </ul>
+            </Container>
+        </section>
+
+        <!-- Expertise Section -->
+        <section class="expertise-section">
+            <Container>
+                <h2>What I Do Best</h2>
+                <div class="expertise-grid">
+                    <div class="expertise-card">
+                        <div class="expertise-icon">🎨</div>
+                        <h3>Frontend Development</h3>
+                        <p>Creating responsive, interactive user interfaces with React, Vue.js, and modern CSS frameworks. I focus on performance, accessibility, and user experience.</p>
+                        <ul class="tech-list">
+                            <li>React & Next.js</li>
+                            <li>Vue.js & Nuxt.js</li>
+                            <li>TypeScript</li>
+                            <li>Tailwind CSS</li>
+                        </ul>
+                    </div>
+                    <div class="expertise-card">
+                        <div class="expertise-icon">⚙️</div>
+                        <h3>Backend Development</h3>
+                        <p>Building robust APIs and server-side applications using Node.js, Python, and various databases. Security and scalability are always top priorities.</p>
+                        <ul class="tech-list">
+                            <li>Node.js & Express</li>
+                            <li>Python & Django</li>
+                            <li>PostgreSQL & MongoDB</li>
+                            <li>REST & GraphQL APIs</li>
+                        </ul>
+                    </div>
+                    <div class="expertise-card">
+                        <div class="expertise-icon">☁️</div>
+                        <h3>Cloud & DevOps</h3>
+                        <p>Deploying and managing applications in the cloud with proper CI/CD pipelines, monitoring, and infrastructure as code.</p>
+                        <ul class="tech-list">
+                            <li>AWS & Vercel</li>
+                            <li>Docker & Kubernetes</li>
+                            <li>GitHub Actions</li>
+                            <li>Monitoring & Analytics</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
+            </Container>
         </section>
 
         <!-- Services Section -->
         <section class="services-section">
-            <h2>Our Services</h2>
-            <div class="link-card-grid">
-                <Card
-                    href="/services/web-design"
-                    title="Web Design"
-                    body="Creating beautiful, responsive websites that capture your brand's essence."
-                />
-                <Card
-                    href="/services/development"
-                    title="Web Development"
-                    body="Building robust applications with modern frameworks and technologies."
-                />
-                <Card
-                    href="/services/support"
-                    title="Technical Support"
-                    body="Providing ongoing maintenance and support for your digital solutions."
-                />
-            </div>
+            <Container>
+                <h2>How I Can Help You</h2>
+                <div class="link-card-grid">
+                    <Card
+                        href="/contact"
+                        title="Web Application Development"
+                        body="Full-stack web applications built with modern frameworks, optimized for performance and scalability."
+                    />
+                    <Card
+                        href="/contact"
+                        title="E-commerce Solutions"
+                        body="Complete online stores with payment processing, inventory management, and admin dashboards."
+                    />
+                    <Card
+                        href="/contact"
+                        title="API Development"
+                        body="RESTful and GraphQL APIs designed for reliability, security, and easy integration."
+                    />
+                    <Card
+                        href="/contact"
+                        title="Technical Consulting"
+                        body="Architecture reviews, performance optimization, and technology stack recommendations."
+                    />
+                    <Card
+                        href="/contact"
+                        title="Code Reviews & Mentoring"
+                        body="Help your team improve code quality and adopt best practices through reviews and mentoring."
+                    />
+                    <Card
+                        href="/contact"
+                        title="Maintenance & Support"
+                        body="Ongoing support, updates, and feature additions for existing applications."
+                    />
+                </div>
+            </Container>
+        </section>
+
+        <!-- Values Section -->
+        <section class="values-section">
+            <Container>
+                <h2>My Core Values</h2>
+                <div class="values-grid">
+                    <div class="value-item">
+                        <h3>Quality First</h3>
+                        <p>I believe in delivering high-quality code that's maintainable, tested, and documented. No shortcuts, just solid engineering.</p>
+                    </div>
+                    <div class="value-item">
+                        <h3>Continuous Learning</h3>
+                        <p>Technology evolves rapidly, and I stay current by constantly learning new tools, frameworks, and best practices.</p>
+                    </div>
+                    <div class="value-item">
+                        <h3>Transparency</h3>
+                        <p>Clear communication, honest timelines, and regular updates. You'll always know where your project stands.</p>
+                    </div>
+                    <div class="value-item">
+                        <h3>User Focus</h3>
+                        <p>Every technical decision is made with the end user in mind. Great code means nothing if users can't benefit from it.</p>
+                    </div>
+                </div>
+            </Container>
         </section>
     </main>
 </Layout>
 
-<style lang="scss" is:global>
+<style lang="scss">
     main {
-        margin: auto;
         color: white;
         font-size: 18px;
         line-height: 1.6;
-        
-        section {
-            padding: 4rem 1rem;
-        }
     }
 
     .hero {
         text-align: center;
-        padding: 8rem 1rem 6rem;
-        background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/images/hero-bg.jpg') center/cover;
+        padding: 8rem 2rem 6rem;
+        background: linear-gradient(135deg, rgba(136, 58, 234, 0.2) 0%, rgba(49, 10, 101, 0.1) 100%);
         
         .hero-inner-container {
             max-width: 1200px;
             margin: 0 auto;
 
             h1 {
-                font-size: 4rem;
-                margin-bottom: 1rem;
-
-                @media screen and (max-width: 768px) {
-                    font-size: 3rem;
-                }
+                font-size: clamp(2.5rem, 5vw, 4rem);
+                margin-bottom: 2rem;
+                line-height: 1.2;
             }
 
             .hero-text {
-                font-size: 1.5rem;
+                font-size: clamp(1.1rem, 2vw, 1.3rem);
                 max-width: 800px;
                 margin: 0 auto;
+                color: rgba(255, 255, 255, 0.9);
             }
         }
     }
 
-    .about-section {
-        background: rgba(255,255,255,0.05);
+    .text-gradient {
+        background-image: var(--accent-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-size: 400%;
+        background-position: 0%;
+    }
 
-        .about-section-inner-container {
+    .about-section {
+        padding: 4rem 0;
+        background: rgba(255,255,255,0.02);
+
+        .content-wrapper {
             max-width: 800px;
             margin: 0 auto;
+            text-align: center;
 
-            .content-wrapper {
-                max-width: 800px;
-                margin: 0 auto;
-                text-align: center;
+            p {
+                margin-bottom: 1.5rem;
+                color: rgba(255, 255, 255, 0.8);
             }
         }
     }
 
     .feature-section {
+        padding: 4rem 0;
+
         .feature-section-inner-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
             align-items: center;
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
-
 
             @media (max-width: 768px) {
                 grid-template-columns: 1fr;
+                gap: 2rem;
             }
 
             .image-container {
                 img {
                     width: 100%;
                     height: auto;
-                    border-radius: 10px;
+                    border-radius: 15px;
+                    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+                }
+            }
+
+            .text-container {
+                p {
+                    color: rgba(255, 255, 255, 0.8);
+                    margin-bottom: 2rem;
                 }
             }
 
@@ -168,32 +269,126 @@ import "../styles/global.css";
                 li {
                     margin: 1rem 0;
                     font-size: 1.1rem;
+                    color: rgba(255, 255, 255, 0.9);
+                }
+            }
+        }
+    }
+
+    .expertise-section {
+        padding: 4rem 0;
+        background: rgba(255,255,255,0.02);
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .expertise-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2.5rem;
+            border-radius: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+
+            &:hover {
+                transform: translateY(-5px);
+                border-color: rgba(136, 58, 234, 0.5);
+            }
+
+            .expertise-icon {
+                font-size: 3rem;
+                margin-bottom: 1rem;
+            }
+
+            h3 {
+                color: rgb(var(--accent-light));
+                margin-bottom: 1.5rem;
+                font-size: 1.5rem;
+            }
+
+            p {
+                color: rgba(255, 255, 255, 0.8);
+                margin-bottom: 1.5rem;
+                line-height: 1.6;
+            }
+
+            .tech-list {
+                list-style: none;
+                padding: 0;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+                justify-content: center;
+
+                li {
+                    background: rgba(136, 58, 234, 0.2);
+                    color: rgb(var(--accent-light));
+                    padding: 0.25rem 0.75rem;
+                    border-radius: 1rem;
+                    font-size: 0.9rem;
+                    border: 1px solid rgba(136, 58, 234, 0.3);
                 }
             }
         }
     }
 
     .services-section {
-        background: rgba(255,255,255,0.05);
+        padding: 4rem 0;
         text-align: center;
-
-        h2 {
-            margin-bottom: 1.5rem;
-        }
 
         .link-card-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             padding: 0;
             max-width: 1200px;
-            margin: 0 auto;
+            margin: 3rem auto 0;
+        }
+    }
+
+    .values-section {
+        padding: 4rem 0;
+        background: rgba(255,255,255,0.02);
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .value-item {
+            text-align: center;
+
+            h3 {
+                color: rgb(var(--accent-light));
+                margin-bottom: 1rem;
+                font-size: 1.3rem;
+            }
+
+            p {
+                color: rgba(255, 255, 255, 0.8);
+                line-height: 1.6;
+            }
         }
     }
 
     h2 {
         font-size: 2.5rem;
         margin-bottom: 1.5rem;
-        color: var(--accent-gradient);
+        text-align: center;
+        color: white;
+    }
+
+    @media (max-width: 768px) {
+        .expertise-grid,
+        .values-grid,
+        .link-card-grid {
+            grid-template-columns: 1fr;
+        }
     }
 </style>

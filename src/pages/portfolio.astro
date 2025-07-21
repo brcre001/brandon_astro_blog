@@ -1,7 +1,504 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Container from '../components/Container.astro';
 ---
 
-<Layout title="Portfolio" description="A collection of my projects and work">
-	<h1>Portfolio</h1>
+<Layout title="Portfolio - Brandon's Work" description="Explore my web development projects, applications, and creative solutions">
+	<main>
+		<section class="portfolio-hero">
+			<Container>
+				<div class="hero-content">
+					<h1 class="text-gradient">My Work</h1>
+					<p class="hero-description">
+						A collection of projects that showcase my passion for creating 
+						exceptional digital experiences and solving complex problems.
+					</p>
+				</div>
+			</Container>
+		</section>
+
+		<section class="skills-overview">
+			<Container>
+				<h2>Technologies I Work With</h2>
+				<div class="skills-grid">
+					<div class="skill-category">
+						<h3>Frontend</h3>
+						<div class="skill-tags">
+							<span class="skill-tag">React</span>
+							<span class="skill-tag">Vue.js</span>
+							<span class="skill-tag">Astro</span>
+							<span class="skill-tag">TypeScript</span>
+							<span class="skill-tag">Tailwind CSS</span>
+							<span class="skill-tag">SCSS</span>
+						</div>
+					</div>
+					<div class="skill-category">
+						<h3>Backend</h3>
+						<div class="skill-tags">
+							<span class="skill-tag">Node.js</span>
+							<span class="skill-tag">Python</span>
+							<span class="skill-tag">Express</span>
+							<span class="skill-tag">PostgreSQL</span>
+							<span class="skill-tag">MongoDB</span>
+							<span class="skill-tag">REST APIs</span>
+						</div>
+					</div>
+					<div class="skill-category">
+						<h3>Tools & Others</h3>
+						<div class="skill-tags">
+							<span class="skill-tag">Git</span>
+							<span class="skill-tag">Docker</span>
+							<span class="skill-tag">AWS</span>
+							<span class="skill-tag">Vercel</span>
+							<span class="skill-tag">Figma</span>
+							<span class="skill-tag">Webpack</span>
+						</div>
+					</div>
+				</div>
+			</Container>
+		</section>
+
+		<section class="featured-projects">
+			<Container>
+				<h2>Featured Projects</h2>
+				<div class="projects-grid">
+					
+					<article class="project-card featured">
+						<div class="project-image">
+							<img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop&crop=entropy&auto=format" alt="E-commerce Dashboard" />
+							<div class="project-overlay">
+								<div class="project-links">
+									<a href="#" class="btn btn-primary">Live Demo</a>
+									<a href="#" class="btn btn-secondary">Source Code</a>
+								</div>
+							</div>
+						</div>
+						<div class="project-content">
+							<h3>E-commerce Dashboard</h3>
+							<p>A comprehensive admin dashboard for managing online stores with real-time analytics, inventory management, and order processing.</p>
+							<div class="project-tags">
+								<span class="tag">React</span>
+								<span class="tag">TypeScript</span>
+								<span class="tag">Node.js</span>
+								<span class="tag">PostgreSQL</span>
+							</div>
+							<div class="project-metrics">
+								<span class="metric">
+									<strong>50%</strong> faster load times
+								</span>
+								<span class="metric">
+									<strong>100+</strong> admin users
+								</span>
+							</div>
+						</div>
+					</article>
+
+					<article class="project-card">
+						<div class="project-image">
+							<img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&h=400&fit=crop&crop=entropy&auto=format" alt="Task Management App" />
+							<div class="project-overlay">
+								<div class="project-links">
+									<a href="#" class="btn btn-primary">Live Demo</a>
+									<a href="#" class="btn btn-secondary">Source Code</a>
+								</div>
+							</div>
+						</div>
+						<div class="project-content">
+							<h3>Task Management Platform</h3>
+							<p>A collaborative project management tool with real-time updates, team collaboration features, and intuitive drag-and-drop interface.</p>
+							<div class="project-tags">
+								<span class="tag">Vue.js</span>
+								<span class="tag">Socket.io</span>
+								<span class="tag">MongoDB</span>
+								<span class="tag">Express</span>
+							</div>
+						</div>
+					</article>
+
+					<article class="project-card">
+						<div class="project-image">
+							<img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&h=400&fit=crop&crop=entropy&auto=format" alt="Weather Analytics App" />
+							<div class="project-overlay">
+								<div class="project-links">
+									<a href="#" class="btn btn-primary">Live Demo</a>
+									<a href="#" class="btn btn-secondary">Source Code</a>
+								</div>
+							</div>
+						</div>
+						<div class="project-content">
+							<h3>Weather Analytics App</h3>
+							<p>A responsive weather application with location-based forecasts, interactive maps, and historical weather data visualization.</p>
+							<div class="project-tags">
+								<span class="tag">React Native</span>
+								<span class="tag">Python</span>
+								<span class="tag">FastAPI</span>
+								<span class="tag">Chart.js</span>
+							</div>
+						</div>
+					</article>
+
+					<article class="project-card">
+						<div class="project-image">
+							<img src="https://images.unsplash.com/photo-1555421689-491a97ff2040?w=600&h=400&fit=crop&crop=entropy&auto=format" alt="Restaurant Website" />
+							<div class="project-overlay">
+								<div class="project-links">
+									<a href="#" class="btn btn-primary">Live Demo</a>
+									<a href="#" class="btn btn-secondary">Source Code</a>
+								</div>
+							</div>
+						</div>
+						<div class="project-content">
+							<h3>Restaurant Chain Website</h3>
+							<p>A modern restaurant website with online ordering, reservation system, and location finder with seamless mobile experience.</p>
+							<div class="project-tags">
+								<span class="tag">Astro</span>
+								<span class="tag">Tailwind CSS</span>
+								<span class="tag">Stripe API</span>
+								<span class="tag">Sanity CMS</span>
+							</div>
+						</div>
+					</article>
+
+					<article class="project-card">
+						<div class="project-image">
+							<img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop&crop=entropy&auto=format" alt="Personal Finance Tracker" />
+							<div class="project-overlay">
+								<div class="project-links">
+									<a href="#" class="btn btn-primary">Live Demo</a>
+									<a href="#" class="btn btn-secondary">Source Code</a>
+								</div>
+							</div>
+						</div>
+						<div class="project-content">
+							<h3>Personal Finance Tracker</h3>
+							<p>A secure financial tracking application with budget planning, expense categorization, and insightful spending analytics.</p>
+							<div class="project-tags">
+								<span class="tag">Next.js</span>
+								<span class="tag">Prisma</span>
+								<span class="tag">Auth0</span>
+								<span class="tag">Recharts</span>
+							</div>
+						</div>
+					</article>
+
+					<article class="project-card">
+						<div class="project-image">
+							<img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&h=400&fit=crop&crop=entropy&auto=format" alt="Learning Management System" />
+							<div class="project-overlay">
+								<div class="project-links">
+									<a href="#" class="btn btn-primary">Live Demo</a>
+									<a href="#" class="btn btn-secondary">Source Code</a>
+								</div>
+							</div>
+						</div>
+						<div class="project-content">
+							<h3>Learning Management System</h3>
+							<p>An educational platform with course management, progress tracking, interactive quizzes, and video streaming capabilities.</p>
+							<div class="project-tags">
+								<span class="tag">Django</span>
+								<span class="tag">React</span>
+								<span class="tag">Redis</span>
+								<span class="tag">AWS S3</span>
+							</div>
+						</div>
+					</article>
+				</div>
+			</Container>
+		</section>
+
+		<section class="cta-section">
+			<Container>
+				<div class="cta-content">
+					<h2>Ready to Work Together?</h2>
+					<p>I'm always excited to take on new challenges and create something amazing together.</p>
+					<div class="cta-buttons">
+						<a href="/contact" class="btn btn-primary">Get In Touch</a>
+						<a href="/blog" class="btn btn-secondary">Read My Blog</a>
+					</div>
+				</div>
+			</Container>
+		</section>
+	</main>
 </Layout>
+
+<style lang="scss">
+	.portfolio-hero {
+		padding: 6rem 0 4rem;
+		text-align: center;
+		background: linear-gradient(135deg, rgba(136, 58, 234, 0.1) 0%, rgba(49, 10, 101, 0.1) 100%);
+
+		.hero-content {
+			max-width: 800px;
+			margin: 0 auto;
+
+			h1 {
+				font-size: clamp(3rem, 5vw, 4.5rem);
+				margin-bottom: 1.5rem;
+			}
+
+			.hero-description {
+				font-size: 1.25rem;
+				color: rgba(255, 255, 255, 0.8);
+				line-height: 1.6;
+			}
+		}
+	}
+
+	.text-gradient {
+		background-image: var(--accent-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 400%;
+		background-position: 0%;
+	}
+
+	.skills-overview {
+		padding: 4rem 0;
+		background: rgba(255, 255, 255, 0.02);
+
+		h2 {
+			text-align: center;
+			font-size: 2.5rem;
+			margin-bottom: 3rem;
+			color: white;
+		}
+
+		.skills-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+			gap: 2rem;
+			margin-bottom: 2rem;
+		}
+
+		.skill-category {
+			background: rgba(255, 255, 255, 0.05);
+			padding: 2rem;
+			border-radius: 1rem;
+			border: 1px solid rgba(255, 255, 255, 0.1);
+
+			h3 {
+				color: rgb(var(--accent-light));
+				margin-bottom: 1.5rem;
+				font-size: 1.5rem;
+			}
+
+			.skill-tags {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.5rem;
+			}
+
+			.skill-tag {
+				background: rgba(136, 58, 234, 0.2);
+				color: rgb(var(--accent-light));
+				padding: 0.5rem 1rem;
+				border-radius: 1.5rem;
+				font-size: 0.9rem;
+				border: 1px solid rgba(136, 58, 234, 0.3);
+			}
+		}
+	}
+
+	.featured-projects {
+		padding: 4rem 0;
+
+		h2 {
+			text-align: center;
+			font-size: 2.5rem;
+			margin-bottom: 3rem;
+			color: white;
+		}
+
+		.projects-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+			gap: 2rem;
+		}
+
+		.project-card {
+			background: rgba(255, 255, 255, 0.05);
+			border-radius: 1rem;
+			overflow: hidden;
+			border: 1px solid rgba(255, 255, 255, 0.1);
+			transition: all 0.3s ease;
+
+			&:hover {
+				transform: translateY(-5px);
+				border-color: rgba(136, 58, 234, 0.5);
+			}
+
+			&.featured {
+				grid-column: span 2;
+				
+				@media (max-width: 768px) {
+					grid-column: span 1;
+				}
+
+				.project-content {
+					padding: 2.5rem;
+				}
+			}
+
+			.project-image {
+				position: relative;
+				overflow: hidden;
+				height: 250px;
+
+				img {
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+					transition: transform 0.3s ease;
+				}
+
+				.project-overlay {
+					position: absolute;
+					top: 0;
+					left: 0;
+					right: 0;
+					bottom: 0;
+					background: rgba(0, 0, 0, 0.8);
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					opacity: 0;
+					transition: opacity 0.3s ease;
+
+					.project-links {
+						display: flex;
+						gap: 1rem;
+					}
+				}
+
+				&:hover {
+					.project-overlay {
+						opacity: 1;
+					}
+					
+					img {
+						transform: scale(1.05);
+					}
+				}
+			}
+
+			.project-content {
+				padding: 2rem;
+
+				h3 {
+					color: white;
+					font-size: 1.5rem;
+					margin-bottom: 1rem;
+				}
+
+				p {
+					color: rgba(255, 255, 255, 0.8);
+					line-height: 1.6;
+					margin-bottom: 1.5rem;
+				}
+
+				.project-tags {
+					display: flex;
+					flex-wrap: wrap;
+					gap: 0.5rem;
+					margin-bottom: 1rem;
+
+					.tag {
+						background: rgba(136, 58, 234, 0.3);
+						color: rgb(var(--accent-light));
+						padding: 0.25rem 0.75rem;
+						border-radius: 1rem;
+						font-size: 0.8rem;
+						border: 1px solid rgba(136, 58, 234, 0.5);
+					}
+				}
+
+				.project-metrics {
+					display: flex;
+					gap: 1.5rem;
+					margin-top: 1rem;
+
+					.metric {
+						color: rgba(255, 255, 255, 0.7);
+						font-size: 0.9rem;
+
+						strong {
+							color: rgb(var(--accent-light));
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.btn {
+		display: inline-block;
+		padding: 0.75rem 1.5rem;
+		border-radius: 0.5rem;
+		font-weight: 500;
+		text-decoration: none;
+		transition: all 0.2s ease;
+		border: 1px solid transparent;
+
+		&.btn-primary {
+			background: rgb(var(--accent));
+			color: white;
+			border-color: rgb(var(--accent));
+
+			&:hover {
+				background: rgb(var(--accent-light));
+				transform: translateY(-2px);
+			}
+		}
+
+		&.btn-secondary {
+			background: transparent;
+			color: rgb(var(--accent-light));
+			border-color: rgb(var(--accent));
+
+			&:hover {
+				background: rgb(var(--accent));
+				color: white;
+			}
+		}
+	}
+
+	.cta-section {
+		padding: 4rem 0;
+		background: linear-gradient(135deg, rgba(136, 58, 234, 0.1) 0%, rgba(49, 10, 101, 0.1) 100%);
+		text-align: center;
+
+		.cta-content {
+			max-width: 600px;
+			margin: 0 auto;
+
+			h2 {
+				font-size: 2.5rem;
+				margin-bottom: 1rem;
+				color: white;
+			}
+
+			p {
+				font-size: 1.2rem;
+				color: rgba(255, 255, 255, 0.8);
+				margin-bottom: 2rem;
+			}
+
+			.cta-buttons {
+				display: flex;
+				gap: 1rem;
+				justify-content: center;
+				flex-wrap: wrap;
+			}
+		}
+	}
+
+	@media (max-width: 768px) {
+		.projects-grid {
+			grid-template-columns: 1fr;
+		}
+		
+		.skills-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>
