@@ -9,49 +9,55 @@ import "../styles/global.css";
     <main>
         <!-- Hero Section -->
         <section class="hero">
-            <h1 class="text-gradient">Crafting Digital Experiences</h1>
-            <p class="hero-text">
-                We transform ideas into exceptional digital solutions, creating websites 
-                and applications that make a lasting impact.
-            </p>
+            <div class="hero-inner-container">
+                <h1 class="text-gradient">Crafting Digital Experiences</h1>
+                <p class="hero-text">
+                    We transform ideas into exceptional digital solutions, creating websites 
+                    and applications that make a lasting impact.
+                </p>
+            </div>
         </section>
 
         <!-- About Section -->
         <section class="about-section">
-            <div class="content-wrapper">
-                <h2>Our Story</h2>
-                <p>
-                    With over a decade of experience in web development and design, 
-                    we've helped countless businesses establish their digital presence. 
-                    Our passion lies in creating seamless, user-friendly experiences 
-                    that drive results.
-                </p>
-                <p>
-                    We believe in staying ahead of the curve, continuously learning 
-                    and adapting to new technologies while maintaining our commitment 
-                    to quality and innovation.
-                </p>
+            <div class="about-section-inner-container">
+                <div class="content-wrapper">
+                    <h2>Our Story</h2>
+                    <p>
+                        With over a decade of experience in web development and design, 
+                        we've helped countless businesses establish their digital presence. 
+                        Our passion lies in creating seamless, user-friendly experiences 
+                        that drive results.
+                    </p>
+                    <p>
+                        We believe in staying ahead of the curve, continuously learning 
+                        and adapting to new technologies while maintaining our commitment 
+                        to quality and innovation.
+                    </p>
+                </div>
             </div>
         </section>
 
         <!-- Image & Text Section -->
         <section class="feature-section">
-            <div class="image-container">
-                <img src="/images/workspace.jpg" alt="Modern workspace with computers" />
-            </div>
-            <div class="text-container">
-                <h2>How We Work</h2>
-                <p>
-                    Our approach combines technical expertise with creative problem-solving. 
-                    We focus on delivering solutions that are not just visually stunning 
-                    but also performant and scalable.
-                </p>
-                <ul class="feature-list">
-                    <li>✨ Modern Technology Stack</li>
-                    <li>🚀 Performance-First Approach</li>
-                    <li>💡 Innovative Solutions</li>
-                    <li>🤝 Collaborative Development</li>
-                </ul>
+            <div class="feature-section-inner-container">
+                <div class="image-container">
+                    <img src="/images/workspace.jpg" alt="Modern workspace with computers" />
+                </div>
+                <div class="text-container">
+                    <h2>How We Work</h2>
+                    <p>
+                        Our approach combines technical expertise with creative problem-solving. 
+                        We focus on delivering solutions that are not just visually stunning 
+                        but also performant and scalable.
+                    </p>
+                    <ul class="feature-list">
+                        <li>✨ Modern Technology Stack</li>
+                        <li>🚀 Performance-First Approach</li>
+                        <li>💡 Innovative Solutions</li>
+                        <li>🤝 Collaborative Development</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
@@ -68,11 +74,6 @@ import "../styles/global.css";
                     href="/services/development"
                     title="Web Development"
                     body="Building robust applications with modern frameworks and technologies."
-                />
-                <Card
-                    href="/services/seo"
-                    title="SEO Optimization"
-                    body="Improving your digital presence and search engine rankings."
                 />
                 <Card
                     href="/services/support"
@@ -93,65 +94,81 @@ import "../styles/global.css";
         
         section {
             padding: 4rem 1rem;
-            max-width: 1200px;
-            margin: 0 auto;
         }
     }
 
     .hero {
         text-align: center;
         padding: 8rem 1rem 6rem;
-        background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                    url('/images/hero-bg.jpg') center/cover;
+        background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/images/hero-bg.jpg') center/cover;
         
-        h1 {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-        }
-
-        .hero-text {
-            font-size: 1.5rem;
-            max-width: 800px;
+        .hero-inner-container {
+            max-width: 1200px;
             margin: 0 auto;
+
+            h1 {
+                font-size: 4rem;
+                margin-bottom: 1rem;
+
+                @media screen and (max-width: 768px) {
+                    font-size: 3rem;
+                }
+            }
+
+            .hero-text {
+                font-size: 1.5rem;
+                max-width: 800px;
+                margin: 0 auto;
+            }
         }
     }
 
     .about-section {
         background: rgba(255,255,255,0.05);
 
-        .content-wrapper {
+        .about-section-inner-container {
             max-width: 800px;
             margin: 0 auto;
-            text-align: center;
+
+            .content-wrapper {
+                max-width: 800px;
+                margin: 0 auto;
+                text-align: center;
+            }
         }
     }
 
     .feature-section {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 4rem;
-        align-items: center;
+        .feature-section-inner-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
 
-        @media (max-width: 768px) {
-            grid-template-columns: 1fr;
-        }
 
-        .image-container {
-            img {
-                width: 100%;
-                height: auto;
-                border-radius: 10px;
+            @media (max-width: 768px) {
+                grid-template-columns: 1fr;
             }
-        }
 
-        .feature-list {
-            list-style: none;
-            padding: 0;
-            margin-top: 2rem;
+            .image-container {
+                img {
+                    width: 100%;
+                    height: auto;
+                    border-radius: 10px;
+                }
+            }
 
-            li {
-                margin: 1rem 0;
-                font-size: 1.1rem;
+            .feature-list {
+                list-style: none;
+                padding: 0;
+                margin-top: 2rem;
+
+                li {
+                    margin: 1rem 0;
+                    font-size: 1.1rem;
+                }
             }
         }
     }
@@ -161,7 +178,7 @@ import "../styles/global.css";
         text-align: center;
 
         h2 {
-            margin-bottom: 3rem;
+            margin-bottom: 1.5rem;
         }
 
         .link-card-grid {

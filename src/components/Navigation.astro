@@ -1,5 +1,6 @@
 ---
 import Container from './Container.astro';
+import logoImage from '../images/brandon-atom-logo.svg';
 
 const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.slice(1); // remove the first "/"
@@ -12,7 +13,7 @@ const currentPath = pathname.slice(1); // remove the first "/"
                 <div class="nav-content">
                     <div class="logo-container">
                         <a href="/" class="logo">
-                            <span class="text-gradient">B.DEV</span>
+                            <img src={logoImage.src} alt="Brandon's Dev Blog Logo" width="40" height="40" />
                         </a>
                     </div>
                     <div class="nav-links">
@@ -21,6 +22,9 @@ const currentPath = pathname.slice(1); // remove the first "/"
                         </a>
                         <a href="/about" class={currentPath === "about" ? "active" : ""}>
                             About
+                        </a>
+                        <a href="/portfolio" class={currentPath === "portfolio" ? "active" : ""}>
+                            Portfolio
                         </a>
                         <a href="/blog" class={currentPath.startsWith("blog") ? "active" : ""}>
                             Blog
@@ -180,7 +184,7 @@ const currentPath = pathname.slice(1); // remove the first "/"
                 }
 
                 &:hover, &.active {
-                    background: rgba(255, 255, 255, 0.1);
+                    background: #4c1d95;
                     border-radius: 0.25rem;
                 }
             }

@@ -1,4 +1,5 @@
 ---
+import '../styles/global.css';
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
 
@@ -21,7 +22,7 @@ const { title, description } = Astro.props;
 		<title>{title}</title>
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap&family=Playwrite+DK+Loopet:wght@100..400&display=swap" rel="stylesheet">
 
 		<!-- Google tag (gtag.js) -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-S3S68GE60C"></script>
@@ -107,6 +108,10 @@ const { title, description } = Astro.props;
 	h1, h2, h3, h4, h5, h6 {
 		font-weight: 600;
 		line-height: 1.2;
+	}
+
+	h1 {
+		font-family: 'Playwrite DK Loopet', serif;
 	}
 
 	p {
